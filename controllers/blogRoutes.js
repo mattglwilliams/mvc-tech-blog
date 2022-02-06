@@ -4,10 +4,10 @@ const { Blog } = require("../models");
 // get all blogs
 router.get("/", async (req, res) => {
   try {
-    const allBlogs = (await Blog.findAll()).map((blog) =>
+    const blogs = (await Blog.findAll()).map((blog) =>
       blog.get({ plain: true })
     );
-    res.render("blogs/blogs", { allBlogs });
+    res.render("blogs/blogs", { blogs });
   } catch (err) {
     res.sendStatus(500).send(err);
   }
