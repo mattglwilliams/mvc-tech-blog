@@ -1,6 +1,16 @@
 const router = require("express").Router();
 const { Blog } = require("../models");
 
+// login
+router.get("/login", (req, res) => {
+  res.render("login");
+});
+
+// login
+router.get("/signup", (req, res) => {
+  res.render("signup");
+});
+
 // get all blogs
 router.get("/", async (req, res) => {
   try {
@@ -23,11 +33,6 @@ router.get("/:id", async (req, res) => {
   } catch (err) {
     res.sendStatus(500).send(err);
   }
-});
-
-// login
-router.get("/login", (req, res) => {
-  res.render("login");
 });
 
 // add a blog
