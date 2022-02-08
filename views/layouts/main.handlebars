@@ -10,8 +10,13 @@
     <header>
       <nav>
         <a href="/">HOME</a>
-        <a href="/dashboard">DASHBOARD</a>
-        <a href="#">LOGOUT</a>
+        {{#if loggedIn}}
+          <a href="/dashboard">DASHBOARD</a>
+          <a href="/logout" id="logout">LOGOUT</a>
+        {{else}}
+          <a href="/login">LOGIN</a>
+          <a href="/signup">SIGNUP</a>
+        {{/if}}
       </nav>
       <div class="logo">THE TECH BLOG</div>
     </header>

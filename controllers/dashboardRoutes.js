@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
     const blogs = (await Blog.findAll()).map((blog) =>
       blog.get({ plain: true })
     );
-    res.render("dashboard", { ...blogs });
+    res.render("dashboard", { blogs });
     // res.json(blogs);
   } catch (err) {
     res.sendStatus(500).send(err);

@@ -6,7 +6,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-// login
+// signup
 router.get("/signup", (req, res) => {
   res.render("signup");
 });
@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
     const blogs = (await Blog.findAll()).map((blog) =>
       blog.get({ plain: true })
     );
-    res.render("home", { blogs });
+    res.render("home", { blogs, loggedIn: req.session.loggedIn });
     // res.json(blogs);
   } catch (err) {
     res.sendStatus(500).send(err);

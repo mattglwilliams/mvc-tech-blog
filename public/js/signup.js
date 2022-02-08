@@ -11,7 +11,6 @@ async function signupFormHandler(event) {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      console.log("hello");
       document.location.replace("/");
     } else {
       alert(response.statusText);
