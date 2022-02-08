@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Blog } = require("../models");
+const withAuth = require("../utils/auth");
 
 // login
 router.get("/login", (req, res) => {
@@ -18,6 +19,18 @@ router.get("/", async (req, res) => {
       blog.get({ plain: true })
     );
     res.render("home", { blogs, loggedIn: req.session.loggedIn });
+    // res.json(blogs);
+  } catch (err) {
+    res.sendStatus(500).send(err);
+  }
+});
+
+router.get("/dashboard", withAuth, async (req, res) => {
+  try {
+    const blogs = (await Blog.findAll()).map((blog) =>
+      blog.get({ plain: true })
+    );
+    res.render("dashboard", { blogs, loggedIn: req.session.loggedIn });
     // res.json(blogs);
   } catch (err) {
     res.sendStatus(500).send(err);
