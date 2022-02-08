@@ -7,8 +7,8 @@ router.get("/", async (req, res) => {
     const blogs = (await Blog.findAll()).map((blog) =>
       blog.get({ plain: true })
     );
-    // res.render("blogs/blogs", { blogs });
-    res.json(blogs);
+    res.render("home", { blogs });
+    // res.json(blogs);
   } catch (err) {
     res.sendStatus(500).send(err);
   }
@@ -18,11 +18,16 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const blog = (await Blog.findByPk(req.params.id)).get({ plain: true });
-    // res.render("blogs/single-blog", {...blog});
-    res.json(blog);
+    res.render("single-blog", { ...blog });
+    // res.json(blog);
   } catch (err) {
     res.sendStatus(500).send(err);
   }
+});
+
+// login
+router.get("/login", (req, res) => {
+  res.render("login");
 });
 
 // add a blog
@@ -48,7 +53,12 @@ router.put("/:id", async (req, res) => {
 
 // delete a blog
 router.delete("/:id", async (req, res) => {
-  Blog.destroy(req.params.id);
+  try {
+    const deletedBlog = await Blog.destroy(req.body);
+    res.json(deletedBlog);
+  } catch (err) {
+    res.sendStatus(500).send(err);
+  }
 });
 
 module.exports = router;

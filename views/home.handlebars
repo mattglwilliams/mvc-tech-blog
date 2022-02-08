@@ -1,0 +1,19 @@
+<div class="blogs">
+  <ul>
+    {{#each blogs}}
+      <li>
+        <div class="blog-container">
+          <section class="blog-header">
+            <div class="blog-title">{{this.blog_title}}</div>
+            <div class="blog-info">Posted by Matt Williams on 02/02/22</div>
+          </section>
+          <section class="blog-content">
+            <p>
+              {{this.blog_content}}
+            </p>
+          </section>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</div>

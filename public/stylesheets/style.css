@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+body {
+  background-color: #001233;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 5% 10%;
+  color: #9ef01a;
+}
+
+nav > a {
+  list-style: none;
+  text-decoration: none;
+  color: #9ef01a;
+  display: inline-block;
+  padding: 0 20px;
+  font-family: "Open Sans";
+  font-size: 1em;
+}
+
+nav > a:hover {
+  color: #ffffff;
+}
+
+.logo {
+  font-family: "Press Start 2P";
+  font-size: 2em;
+}
+
+.blog-container {
+  border: 5px solid #9ef01a;
+  margin: 0 10em 2em 10em;
+}
+
+.blog-header {
+  background-color: #9ef01a;
+  color: #001233;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+}
+
+.blog-title {
+  font-size: 1.2em;
+  font-family: "Open Sans";
+}
+
+.blog-info {
+  font-family: "Open Sans";
+}
+
+.blog-date {
+  font-family: "Open Sans";
+}
+
+.blog-content {
+  font-family: "Open Sans";
+  color: white;
+  padding: 1em 2em;
+}
+
+.form-container {
+  border: 5px solid #9ef01a;
+  margin: 0 10em 2em 10em;
+}
+
+.form-header {
+  background-color: #9ef01a;
+  color: #001233;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+}
+
+.form-title {
+  font-size: 1.5em;
+  font-family: "Open Sans";
+}
+
+.form-body {
+  padding: 2em 4em 2em 2em;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 1em 1.2em;
+  margin: 1em 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: "Open Sans";
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: #04aa6d;
+  color: white;
+  padding: 1em 1.2em;
+  margin: 1em 0;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+input[type="submit"]:hover {
+  background-color: #0dc480;
+}
+
+form > p {
+  color: white;
+  font-size: 1em;
+  font-family: "Open Sans";
+  font-style: italic;
+}
+
+form > a {
+  text-decoration: none;
+  color: white;
+  font-size: 1em;
+  font-family: "Open Sans";
+  font-style: italic;
+}
+
+form > a:hover {
+  text-decoration: underline;
+}
+
+.dashboard-blog {
+  margin: 0 10em 2em 10em;
+  background-color: #9ef01a;
+  color: #001233;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  border-radius: 4px;
+}
+
+.dashboard-blog:hover {
+  background-color: #dbffa0;
+  cursor: pointer;
+}
+
+.add-btn {
+  background-color: #04aa6d;
+  color: white;
+  padding: 1em 1.2em;
+  margin: 0 10em 2em 10em;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.add-btn:hover {
+  background-color: #0dc480;
+}
+
+.edit-blog-container {
+  border: 5px solid #9ef01a;
+  margin: 0 10em 2em 10em;
+}
+
+.edit-blog-header {
+  background-color: #9ef01a;
+  color: #001233;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+}
+
+.edit-blog-title {
+  font-family: "Open Sans";
+}
+
+.edit-blog-body {
+  padding: 2em 4em 2em 2em;
+}
+
+.edit-blog-content {
+  width: 100%;
+  padding: 1em 1.2em;
+  margin: 1em 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: "Open Sans";
+  resize: vertical;
+  height: 15em;
+}
+
+.add-comment-container {
+  border: 5px solid #9ef01a;
+  margin: 0 10em 2em 10em;
+}
+
+.add-comment-header {
+  background-color: #9ef01a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+}
+
+.add-comment-input {
+  margin: 1em 1em;
+}
+
+.new-comment-content {
+  width: 100%;
+  padding: 1em 1.2em;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: "Open Sans";
+  resize: vertical;
+}
+
+.comments-container {
+  border: 5px solid #9ef01a;
+  margin: 0 10em 2em 10em;
+}
+
+.comments-content {
+  font-family: "Open Sans";
+  color: white;
+  padding: 1em 1.2em 0 1.2em;
+  margin: 1em 0;
+}
+
+.comments-user-info {
+  font-family: "Open Sans";
+  color: white;
+  padding: 1em 1.2em 0 1.2em;
+  margin: 1em 0;
+}
+
+@media (max-width: 1050px) {
+  header {
+    flex-direction: column;
+  }
+  nav > ul > li {
+    list-style: none;
+    display: inline-block;
+    margin-bottom: 1em;
+  }
+}
