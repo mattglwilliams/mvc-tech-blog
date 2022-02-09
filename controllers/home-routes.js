@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Blog } = require("../models");
+const { Blog, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
 // login
@@ -12,14 +12,21 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
+// add a blog
+router.get("/add-blog", withAuth, async (req, res) => {
+  res.render("add-blog");
+});
+
 // get all blogs
 router.get("/", async (req, res) => {
   try {
-    const blogs = (await Blog.findAll()).map((blog) =>
-      blog.get({ plain: true })
-    );
+    const blogs = (
+      await Blog.findAll({
+        attributes: ["id", "blog_title", "blog_content"],
+        include: [{ model: User }, { model: Comment }],
+      })
+    ).map((blog) => blog.get({ plain: true }));
     res.render("home", { blogs, loggedIn: req.session.loggedIn });
-    // res.json(blogs);
   } catch (err) {
     res.sendStatus(500).send(err);
   }
@@ -27,9 +34,13 @@ router.get("/", async (req, res) => {
 
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
-    const blogs = (await Blog.findAll()).map((blog) =>
-      blog.get({ plain: true })
-    );
+    const blogs = (
+      await Blog.findAll({
+        where: {
+          user_id: req.session.user_id,
+        },
+      })
+    ).map((blog) => blog.get({ plain: true }));
     res.render("dashboard", { blogs, loggedIn: req.session.loggedIn });
     // res.json(blogs);
   } catch (err) {
