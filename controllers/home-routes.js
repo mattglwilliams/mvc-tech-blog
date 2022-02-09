@@ -42,18 +42,16 @@ router.get("/dashboard", withAuth, async (req, res) => {
       })
     ).map((blog) => blog.get({ plain: true }));
     res.render("dashboard", { blogs, loggedIn: req.session.loggedIn });
-    // res.json(blogs);
   } catch (err) {
     res.sendStatus(500).send(err);
   }
 });
 
 // get a single blog
-router.get("/:id", async (req, res) => {
+router.get("/blog/:id", async (req, res) => {
   try {
     const blog = (await Blog.findByPk(req.params.id)).get({ plain: true });
     res.render("single-blog", { ...blog });
-    // res.json(blog);
   } catch (err) {
     res.sendStatus(500).send(err);
   }
