@@ -30,4 +30,17 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+// update a blog
+router.put("/:id", async (req, res) => {
+  try {
+    const updatedBlog = await Blog.update(
+      { blog_title: req.body.blog_title, blog_content: req.body.blog_content },
+      { where: { id: req.params.id } }
+    );
+    res.json(updatedBlog);
+  } catch (err) {
+    res.sendStatus(500).send(err);
+  }
+});
+
 module.exports = router;
