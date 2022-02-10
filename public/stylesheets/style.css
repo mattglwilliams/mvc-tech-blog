@@ -46,9 +46,24 @@ nav > a:hover {
   font-size: 2em;
 }
 
+.welcome-content {
+  color: white;
+  font-family: "Open Sans";
+  text-align: center;
+  margin-bottom: 5em;
+}
+
+.dashboard-content {
+  color: white;
+  font-family: "Open Sans";
+  text-align: center;
+  margin-bottom: 5em;
+}
+
 .blog-container {
   border: 5px solid #9ef01a;
   margin: 0 10em 2em 10em;
+  padding-bottom: 1em;
 }
 
 .blog-header {
@@ -332,6 +347,32 @@ form > a:hover {
 
 .add-comment-btn:hover {
   background-color: #0dc480;
+}
+
+.view-blog {
+  font-size: 0.9em;
+  font-family: "Open Sans";
+  color: #9ef01a;
+  text-align: center;
+  font-style: italic;
+  margin-left: 2em;
+}
+
+.view-blog:hover {
+  text-decoration: underline;
+}
+
+.blog-comments-amount {
+  font-size: 0.9em;
+  font-family: "Open Sans";
+  color: #9ef01a;
+  text-align: center;
+  font-style: italic;
+  margin-left: 2em;
+}
+
+.blog-comments-amount:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 1050px) {

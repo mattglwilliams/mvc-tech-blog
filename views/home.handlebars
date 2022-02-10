@@ -1,4 +1,6 @@
 <div class="blogs">
+  <p class="welcome-content">Welcome to the tech blog! A blog for all things
+    tech. Sign up today and submit your first post!</p>
   <ul>
     {{#each blogs}}
       <li>
@@ -17,6 +19,12 @@
               {{this.blog_content}}
             </p>
           </section>
+          <a href="/blog/{{id}}" class="view-blog">view blog...</a>
+          <a
+            href="/blog/{{id}}"
+            class="blog-comments-amount"
+          >{{comments.length}}
+            comments</a>
         </div>
       </li>
     {{/each}}
