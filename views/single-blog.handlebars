@@ -1,7 +1,10 @@
 <div class="blog-container">
   <section class="blog-header">
     <div class="blog-title">{{this.blog_title}}</div>
-    <div class="blog-info">Posted by Matt Williams on 02/02/22</div>
+    <div class="blog-info">Posted by
+      {{user.username}}
+      on
+      {{format_date created_at}}</div>
   </section>
   <section class="blog-content">
     <p>
@@ -9,25 +12,35 @@
     </p>
   </section>
 </div>
-<div class="add-comment-container">
-  <section class="add-comment-header"></section>
-  <section class="add-comment-input">
-    <textarea
-      type="text"
-      class="new-comment-content"
-      id="new-comment-content"
-      placeholder="Enter your comment here.."
-    ></textarea>
-    <input type="submit" value="Add Comment" />
-  </section>
-</div>
-<div class="comments-container">
-  <section class="comments-content">
-    <p>
-      {{this.blog_content}}
-    </p>
-  </section>
-  <section class="comments-user-info">
-    <p>--- John Snow, 05/05/22</p>
-  </section>
-</div>
+{{#if loggedIn}}
+  <div class="add-comment-container">
+    <section class="add-comment-header"></section>
+    <section class="add-comment-input">
+      <textarea
+        type="text"
+        class="new-comment-content"
+        id="new-comment-content"
+        placeholder="Enter your comment here.."
+      ></textarea>
+      <button class="add-comment-btn">Add Comment</button>
+    </section>
+  </div>
+{{else}}
+  <a href="/login">
+    <button class="login-btn">Log in to comment</button>
+  </a>
+{{/if}}
+{{#each comments}}
+  <div class="comments-container">
+    <section class="comments-content">
+      <p>
+        {{comment_desc}}
+      </p>
+    </section>
+    <section class="comments-user-info">
+      <p>---{{user.username}}, {{format_date createdAt}}</p>
+    </section>
+  </div>
+{{/each}}
+
+<script src="/js/add-comment.js"></script>

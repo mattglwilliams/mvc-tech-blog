@@ -53,10 +53,30 @@ router.get("/dashboard", withAuth, async (req, res) => {
 // get a single blog
 router.get("/blog/:id", async (req, res) => {
   try {
-    const blog = (await Blog.findByPk(req.params.id)).get({ plain: true });
-    res.render("single-blog", { ...blog });
+    const blog = (
+      await Blog.findOne({
+        where: { id: req.params.id },
+        attributes: ["id", "blog_title", "blog_content", "created_at"],
+        include: [
+          {
+            model: Comment,
+            attributes: [
+              "id",
+              "comment_desc",
+              "user_id",
+              "blog_id",
+              "createdAt",
+            ],
+            include: { model: User, attributes: ["username"] },
+          },
+          { model: User, attributes: ["username"] },
+        ],
+      })
+    ).get({ plain: true });
+    res.render("single-blog", { ...blog, loggedIn: req.session.loggedIn });
+    // res.json(blog);
   } catch (err) {
-    res.sendStatus(500).send(err);
+    res.status(500).send(err);
   }
 });
 
@@ -64,7 +84,7 @@ router.get("/blog/:id", async (req, res) => {
 router.get("/edit-blog/:id", async (req, res) => {
   try {
     const blog = (await Blog.findByPk(req.params.id)).get({ plain: true });
-    res.render("update-blog", { ...blog });
+    res.render("update-blog", { ...blog, loggedIn: req.session.loggedIn });
   } catch (err) {
     res.sendStatus(500).send(err);
   }

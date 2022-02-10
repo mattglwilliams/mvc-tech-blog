@@ -2,7 +2,9 @@ const updateBlogHandler = async (event) => {
   event.preventDefault();
 
   const blog_title = document.querySelector("#edit-blog-title").value.trim();
-  const blog_content = document.querySelector("#edit-blog-title").value.trim();
+  const blog_content = document
+    .querySelector("#edit-blog-content")
+    .value.trim();
   const id = window.location.toString().split("/").pop();
 
   //   console.log(blog_title);
