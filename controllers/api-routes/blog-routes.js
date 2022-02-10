@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User, Blog } = require("../../models");
 
-// CREATE new user
+// create new blog
 router.post("/add-blog", async (req, res) => {
   try {
     const dbUserData = await Blog.create({
@@ -13,6 +13,20 @@ router.post("/add-blog", async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
+  }
+});
+
+// delete a blog
+router.delete("/:id", async (req, res) => {
+  try {
+    const deletedBlog = await Blog.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json(deletedBlog);
+  } catch (err) {
+    res.sendStatus(500).send(err);
   }
 });
 

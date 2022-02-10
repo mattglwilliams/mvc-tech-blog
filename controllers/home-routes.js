@@ -22,16 +22,18 @@ router.get("/", async (req, res) => {
   try {
     const blogs = (
       await Blog.findAll({
-        attributes: ["id", "blog_title", "blog_content"],
+        attributes: ["id", "blog_title", "blog_content", "created_at"],
         include: [{ model: User }, { model: Comment }],
       })
     ).map((blog) => blog.get({ plain: true }));
     res.render("home", { blogs, loggedIn: req.session.loggedIn });
+    // res.json(blogs);
   } catch (err) {
     res.sendStatus(500).send(err);
   }
 });
 
+// get all blogs by a certain user
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const blogs = (
@@ -39,6 +41,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
         where: {
           user_id: req.session.user_id,
         },
+        attributes: ["id", "blog_title", "blog_content", "created_at"],
       })
     ).map((blog) => blog.get({ plain: true }));
     res.render("dashboard", { blogs, loggedIn: req.session.loggedIn });
@@ -57,32 +60,11 @@ router.get("/blog/:id", async (req, res) => {
   }
 });
 
-// add a blog
-router.post("/", async (req, res) => {
+// get a single blog
+router.get("/edit-blog/:id", async (req, res) => {
   try {
-    const newBlog = await Blog.create(req.body);
-    res.json(newBlog);
-  } catch (err) {
-    console.error(err);
-    res.sendStatus(500).send(err);
-  }
-});
-
-// update a blog
-router.put("/:id", async (req, res) => {
-  try {
-    const updatedBlog = await Blog.update(req.body);
-    res.json(updatedBlog);
-  } catch (err) {
-    res.sendStatus(500).send(err);
-  }
-});
-
-// delete a blog
-router.delete("/:id", async (req, res) => {
-  try {
-    const deletedBlog = await Blog.destroy(req.body);
-    res.json(deletedBlog);
+    const blog = (await Blog.findByPk(req.params.id)).get({ plain: true });
+    res.render("update-blog", { ...blog });
   } catch (err) {
     res.sendStatus(500).send(err);
   }

@@ -63,6 +63,11 @@ nav > a:hover {
 .blog-title {
   font-size: 1.2em;
   font-family: "Open Sans";
+  color: #001233;
+}
+
+.blog-title:hover {
+  text-decoration: underline;
 }
 
 .blog-info {
@@ -255,6 +260,49 @@ form > a:hover {
   color: white;
   padding: 1em 1.2em 0 1.2em;
   margin: 1em 0;
+}
+
+.delete-btn {
+  width: 100%;
+  background-color: #04aa6d;
+  color: white;
+  padding: 1em 1.2em;
+  margin: 1em 0;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.delete-btn:hover {
+  background-color: #0dc480;
+}
+
+.update-btn {
+  width: 100%;
+  background-color: #04aa6d;
+  color: white;
+  padding: 1em 1.2em;
+  margin: 1em 0;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.update-btn:hover {
+  background-color: #0dc480;
+}
+
+.logout {
+  text-decoration: none;
+  background-color: #001233;
+  color: #9ef01a;
+  display: inline-block;
+  padding: 0 20px;
+  font-family: "Open Sans";
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.logout:hover {
+  color: white;
 }
 
 @media (max-width: 1050px) {

@@ -8,16 +8,19 @@
         type="text"
         class="edit-blog-title"
         id="edit-blog-title"
-        placeholder="Enter blog title here.."
+        value="{{this.blog_title}}"
       />
-      <textarea
+      <input
         type="text"
         class="edit-blog-content"
         id="edit-blog-content"
-        placeholder="Enter blog content here.."
-      ></textarea>
-      <input type="submit" value="Update" />
-      <input type="submit" value="Delete" />
+        value="{{this.blog_content}}"
+      ></input>
+      <button class="update-btn" type="submit">Update</button>
+      <button class="delete-btn" type="submit">Delete</button>
     </form>
   </section>
 </div>
+
+<script src="/js/delete-blog.js"></script>
+<script src="/js/update-blog.js"></script>

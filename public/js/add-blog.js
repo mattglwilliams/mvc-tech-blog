@@ -6,9 +6,6 @@ const addBlogFormHandler = async (event) => {
     .querySelector("#edit-blog-content")
     .value.trim();
 
-  //   console.log(title);
-  //   console.log(content);
-
   if (blog_title && blog_content) {
     const response = await fetch("/api/blog/add-blog", {
       method: "POST",

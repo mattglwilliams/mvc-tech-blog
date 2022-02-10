@@ -1,11 +1,11 @@
 <div class="blogs">
   <ul>
     {{#each blogs}}
-      <a href="/blog/{{id}}">
+      <a href="/edit-blog/{{id}}">
         <li>
           <div class="dashboard-blog">
             <div class="blog-title">{{this.blog_title}}</div>
-            <div class="blog-date">02/02/22</div>
+            <div class="blog-date">{{format_date created_at}}</div>
           </div>
         </li>
       </a>
