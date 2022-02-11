@@ -11,7 +11,7 @@ For this project, I have created a tech blog where people can sign-up/login and 
 
 ![](/public/images/the-tech-blog.png)
 
-This is a full stack application that uses the MVC paradigm as its architectural structure. It uses sequelize as the ORM and Handlebars as the templating langauge to generate the views. It requires the following dependencies:
+This is a full stack application that uses the MVC paradigm as its architectural structure. It uses sequelize as the ORM and Handlebars as the templating langauge to generate the views and an express API as the controllers. It requires the following dependencies:
 
 - bcrypt
 - connect-session-sequelize
