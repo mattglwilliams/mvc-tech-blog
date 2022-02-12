@@ -22,7 +22,10 @@ router.get("/signup", (req, res) => {
 
 // add a blog
 router.get("/add-blog", withAuth, async (req, res) => {
-  res.render("add-blog");
+  res.render("add-blog", {
+    loggedIn: req.session.loggedIn,
+    doctype: "<!DOCTYPE HTML>",
+  });
 });
 
 // get all blogs
@@ -35,7 +38,11 @@ router.get("/", async (req, res) => {
         order: [["createdAt", "DESC"]],
       })
     ).map((blog) => blog.get({ plain: true }));
-    res.render("home", { blogs, loggedIn: req.session.loggedIn });
+    res.render("home", {
+      blogs,
+      loggedIn: req.session.loggedIn,
+      doctype: "<!DOCTYPE HTML>",
+    });
     // res.json(blogs);
   } catch (err) {
     res.sendStatus(500).send(err);

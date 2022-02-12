@@ -465,3 +465,29 @@ form > a:hover {
     font-size: 1.25em;
   }
 }
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(104, 104, 104) rgb(46, 46, 46);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+  opacity: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(221, 221, 221);
+  opacity: 0;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(165, 165, 165);
+  border-radius: 60px;
+  border: rgba(255, 255, 255, 0);
+  opacity: 0;
+}
+
+/* =============================================== */
