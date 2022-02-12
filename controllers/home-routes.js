@@ -32,6 +32,7 @@ router.get("/", async (req, res) => {
       await Blog.findAll({
         attributes: ["id", "blog_title", "blog_content", "created_at"],
         include: [{ model: User }, { model: Comment }],
+        order: [["createdAt", "DESC"]],
       })
     ).map((blog) => blog.get({ plain: true }));
     res.render("home", { blogs, loggedIn: req.session.loggedIn });
